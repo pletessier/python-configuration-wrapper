@@ -23,7 +23,7 @@ Read multi-level configuration values from multiple sources (precedency ordered)
 1. Config directories given by `--config-path` or `-P` parameter. The value of this parameter must be a directory path in which the sub-directories are multi-level keys, and plain-text files content are values. It's very practical when using secrets in containers.  
 
    Example:
-   ```.bash
+   ```
    mkdir /var/run/secrets/database -p
    echo -n 123456 > /var/run/secrets/database/password
    python app.py --config-path /var/run/secrets
@@ -37,7 +37,7 @@ Read multi-level configuration values from multiple sources (precedency ordered)
     * python
     
     Example:
-    ```.bash
+    ```
     python app.py -F config.json --config-file config.yaml
     ```
 
