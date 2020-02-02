@@ -53,5 +53,5 @@ jobs:
           name: upload to pypi.org
           command: |
             . venv/bin/activate
-            python setup.py sdist
+            python setup.py sdist bdist_wheel
             python -m twine upload --username $pypi_username --password $pypi_password dist/*
