@@ -48,3 +48,8 @@ jobs:
             PYTHONPATH: .
             CONFIG_PREFIX: TEST
             TEST__database__user: root
+
+      - run:
+          command: |
+            python setup.py sdist
+            python -m twine upload --username $pypi_username --password $pypi_password dist/*

@@ -2,9 +2,9 @@ from setuptools import setup
 
 setup(
     name='python-configuration-wrapper',
-    version='1.0.0',
+    version='1.0.2',
     description='A wrapper of python-configuration',
-    url="https://github.com/pletessier/python-configuration-wrapper.git",
+    url="https://github.com/pletessier/python-configuration-wrapper",
     author='Pierre Letessier',
     keywords=["configuration"],
     packages=['python_configuration_wrapper'],
