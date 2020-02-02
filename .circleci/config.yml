@@ -50,6 +50,8 @@ jobs:
             TEST__database__user: root
 
       - run:
+          name: upload to pypi.org
           command: |
+            . venv/bin/activate
             python setup.py sdist
             python -m twine upload --username $pypi_username --password $pypi_password dist/*
