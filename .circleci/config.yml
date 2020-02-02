@@ -43,5 +43,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            cd test
-            CONFIG_PREFIX=TEST TEST__database__user=root python test.py --config-file config.json --config-file config.yaml --config-path secrets --additional-config "database.name=postgres"
+            python test/test.py --config-file test/config.json --config-file test/config.yaml --config-path test/secrets --additional-config "database.name=postgres"
+          environment:
+            PYTHONPATH: .
+            CONFIG_PREFIX: TEST
+            TEST__database__user: root
