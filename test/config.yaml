@@ -1,0 +1,13 @@
+---
+
+app: my-app-name
+description: This is my description
+
+database:
+  host: my-dh-host.com
+  port: 9999
+  name: mydb
+  user: mydbuser
+
+logging:
+  level: INFO
