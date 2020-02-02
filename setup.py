@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='python-configuration-wrapper',
-    version='1.0.2',
+    version='1.0.3',
     description='A wrapper of python-configuration',
     url="https://github.com/pletessier/python-configuration-wrapper",
     long_description=long_description,
