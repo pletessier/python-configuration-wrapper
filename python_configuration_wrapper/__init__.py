@@ -52,7 +52,7 @@ class Configuration:
                     else:
                         root[b] = dict()
                 root = root[b]
-        self.dict = DotMap(tempdict)
+        self.dict = DotMap(tempdict, _dynamic=False)
 
 
 config = Configuration.instance().dict
