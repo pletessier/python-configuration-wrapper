@@ -3,12 +3,20 @@
 # LICENSE file in the root directory of this source tree.
 
 import argparse
+import ast
 import os
 import sys
 
 from config import config as python_config
 from dotmap import DotMap
 from singleton.singleton import Singleton
+
+
+def infer_best_type(v):
+    try:
+        return ast.literal_eval(v)
+    except (ValueError, SyntaxError):
+        return v
 
 
 @Singleton
@@ -31,7 +39,14 @@ class Configuration:
             sys.exit(1)
 
         configurations = list()
-        configurations.append(dict(i.split("=") for i in args.additional_config) if args.additional_config else dict())
+
+        if args.additional_config:
+            kv_args = dict(i.split("=") for i in args.additional_config)
+            for k,v in kv_args.items():
+                kv_args[k] = infer_best_type(v)
+
+            configurations.append(kv_args)
+
         configurations.append("env")
         if args.config_paths:
             configurations.extend(args.config_paths)
