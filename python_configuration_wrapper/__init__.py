@@ -41,7 +41,7 @@ class Configuration:
         configurations = list()
 
         if args.additional_config:
-            kv_args = dict(i.split("=") for i in args.additional_config)
+            kv_args = dict(i.split("=", maxsplit=1) for i in args.additional_config)
             for k,v in kv_args.items():
                 kv_args[k] = infer_best_type(v)
 
