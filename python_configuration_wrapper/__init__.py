@@ -42,7 +42,7 @@ class Configuration:
 
         if args.additional_config:
             kv_args = dict(i.split("=", maxsplit=1) for i in args.additional_config)
-            for k,v in kv_args.items():
+            for k, v in kv_args.items():
                 kv_args[k] = infer_best_type(v)
 
             configurations.append(kv_args)
@@ -52,6 +52,17 @@ class Configuration:
             configurations.extend(args.config_paths)
         if args.config_files:
             configurations.extend(args.config_files)
+        else:
+            if os.path.isfile('config.yaml'):
+                configurations.append('config.yaml')
+            elif os.path.isfile('config.json'):
+                configurations.append('config.json')
+            elif os.path.isfile('config.ini'):
+                configurations.append('config.ini')
+            elif os.path.isfile('config.toml'):
+                configurations.append('config.toml')
+            elif os.path.isfile('config.python'):
+                configurations.append('config.python')
 
         conf_set = python_config(*configurations, prefix=prefix, remove_level=0)
 

@@ -40,7 +40,9 @@ Read multi-level configuration values from multiple sources (precedency ordered)
     ```
     python app.py -F config.json --config-file config.yaml
     ```
-
+    
+    If no config file is given, the lib will look for config.{yaml|json|ini|toml|python} in the working directory.
+    
 ## Installation
 ```
 pip install python-configuration-wrapper
