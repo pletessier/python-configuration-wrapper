@@ -6,6 +6,7 @@ import argparse
 import ast
 import os
 import sys
+import re
 
 from config import config as python_config
 from dotmap import DotMap
@@ -69,9 +70,11 @@ class Configuration:
         tempdict = dict()
 
         for key, value in conf_set.as_dict().items():
-            tree = key.split('.')
+            # tree = key.split('.')
+            tree = re.split('''\.(?=(?:[^'"]|'[^']*'|"[^"]*")*$)''', key)
             root = tempdict
             for i, b in enumerate(tree):
+                b = b.strip("'")
                 if b not in root:
                     if (i + 1) == len(tree):
                         root[b] = value
